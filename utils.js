@@ -33,7 +33,7 @@ function getHeaders(url, options, ctx, customHeader) {
         Referer: "https://www.facebook.com/",
         Host: url.replace("https://", "").split("/")[0],
         Origin: "https://www.facebook.com",
-        "user-agent": (options.userAgent || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"),
+        "user-agent": (options.userAgent || "Mozilla/5.0 (Linux; Android 7.0; dolphin Build/NRD91N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.100 Safari/537.36"),
         Connection: "keep-alive",
         "sec-fetch-site": 'same-origin',
         "sec-fetch-mode": 'cors'
