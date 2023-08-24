@@ -231,7 +231,7 @@ function setOptions(globalOptions, options) {
                         break;
                     }
                     case 'userAgent': {
-                        globalOptions.userAgent = (options.userAgent || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36');
+                        globalOptions.userAgent = (options.userAgent || 'Mozilla/5.0 (Linux; Android 7.0; dolphin Build/NRD91N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.100 Safari/537.36');
                         break;
                     }
                     case 'proxy': {
@@ -279,7 +279,7 @@ function buildAPI(globalOptions, html, jar) {
     else {
         if (html.indexOf("/checkpoint/block/?next") > -1) log.warn("login", Language.CheckPointLevelI);
 
-        var userID = maybeCookie[0].cookieString().split("=")[1].toString();
+        var userID = (Object.values(jar._jar.store.idx['facebook.com']['/']).map($=>$.toString()).join(';').match(/i_user=([^;]+);/)||[])[1]||maybeCookie[0].cookieString().split("=")[1].toString();
         process.env['UID'] = logger.Normal(getText(Language.UID,userID), userID);
 
         try {
@@ -1058,7 +1058,7 @@ function login(loginData, options, callback) {
         logRecordSize: 100,
         online: false,
         emitReady: false,
-        userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.1.2 Safari/603.3.8"
+        userAgent: "Mozilla/5.0 (Linux; Android 7.0; dolphin Build/NRD91N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.100 Safari/537.36"
     };
     
     var prCallback = null;
@@ -1080,7 +1080,7 @@ function login(loginData, options, callback) {
         setOptions(globalOptions, {
             logLevel: "silent",
             forceLogin: true,
-            userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36"
+            userAgent: "Mozilla/5.0 (Linux; Android 7.0; dolphin Build/NRD91N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.100 Safari/537.36"
         });
         loginHelper(loginData.appState, loginData.email, loginData.password, globalOptions, callback, prCallback);
     }
